@@ -1,39 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="24dp"
-    android:gravity="center">
+    android:padding="20dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="디톡스락 제어 센터"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="32dp" />
-
-    <Button
-        android:id="@+id/btnAccessibility"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="1. 접근성 차단 권한 활성화"
-        android:layout_marginBottom="12dp" />
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btnUsageStats"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="2. 사용 시간 추적 권한 활성화"
-        android:layout_marginBottom="12dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🛡️ 디톡스락 관리 센터"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp" />
 
-    <TextView
-        android:id="@+id/tvStatus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="권한을 모두 허용하면 차단 엔진이 활성화됩니다."
-        android:layout_marginTop="20dp"
-        android:textColor="#666666" />
+        <!-- 필수 권한 버튼 -->
+        <Button
+            android:id="@+id/btnUsageAccess"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="1. 사용 기록 접근 권한 허용"
+            android:layout_marginBottom="8dp" />
 
-</LinearLayout>
+        <Button
+            android:id="@+id/btnOverlayAccess"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="2. 다른 앱 위에 표시 권한 허용"
+            android:layout_marginBottom="16dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#CCCCCC"
+            android:layout_marginBottom="16dp" />
+
+        <!-- 기능 1: 앱별 사용 시간 제한 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="⏱️ 유튜브 하루 사용 시간 제한"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvCurrentLimit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="현재 제한: 30분"
+            android:layout_marginTop="4dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+            <Button
+                android:id="@+id/btnLimit15"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="15분" />
+
+            <Button
+                android:id="@+id/btnLimit30"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="30분"
+                android:layout_marginStart="4dp" />
+
+            <Button
+                android:id="@+id/btnLimit60"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="60분"
+                android:layout_marginStart="4dp" />
+        </LinearLayout>
+
+        <!-- 기능 2: 30분 쿨다운 상태 표시 -->
+        <TextView
+            android:id="@+id/tvCooldownStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="변경 예약 없음"
+            android:textColor="#E53935"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#CCCCCC"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- 기능 3: 공부 모드 스위치 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="📚 집중 모드 (공부 모드)"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="모드 활성화 시 지정된 앱 외 모든 차단 대상 즉시 잠금"
+            android:textSize="12sp"
+            android:textColor="#666666" />
+
+        <Button
+            android:id="@+id/btnToggleStudyMode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="집중 모드 켜기"
+            android:layout_marginTop="8dp" />
+
+    </LinearLayout>
+</ScrollView>
